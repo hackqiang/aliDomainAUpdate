@@ -1,26 +1,31 @@
 # aliDomainAUpdate
 ##update the A record for Ali Domains
 
-add your own accesskeys in `config/key.json`:
+1. add your own accesskeys in `config/key.json`:
 
-	{
+		{
+	
+	    	"access_key_id": "XXXXX",
+	
+	    	"access_key_secret": "XXXX"
+	
+		}
 
-    	"access_key_id": "XXXXX",
+2. add your own domains in `config/domains.json`:
 
-    	"access_key_secret": "XXXX"
-
-	}
-
-add your own domains in `config/domains.json`:
-
-	[
-    	"hackqiang.org"
-	]
+		[
+	    	"hackqiang.org"
+		]
 
 
 
-`aliDomainAUpdate` used for ubuntu service
+3. `aliDomainAUpdate` used for ubuntu service:
 
+		sudo cp aliDomainAUpdate /etc/init.d
+
+		sudo update-rc.d aliDomainAUpdate defaults
+
+		sudo service aliDomainAUpdate start
 
 ref:
 >

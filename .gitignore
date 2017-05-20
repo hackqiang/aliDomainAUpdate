@@ -1,2 +1,4 @@
 config/key.json
 .idea
+*.pyc
+log

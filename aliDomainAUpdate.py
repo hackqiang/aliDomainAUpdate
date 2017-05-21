@@ -67,8 +67,9 @@ class aliDomainAUpdate(object):
                     self.pre_ip = ip
                     for domain in self.domains:
                         self.update_A_records(ip, domain)
+                    logging.info('update finish')
                 else:
-                    logging.info('same ip %, skip' % ip)
+                    logging.info('same ip %s, skip' % ip)
             time.sleep(600)
 
 

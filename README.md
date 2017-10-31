@@ -14,7 +14,8 @@
 2. add your own domains in `config/domains.json`:
 
 		[
-	    	"hackqiang.org"
+	    	"hackqiang.org",
+            "x.hackqiang.org"
 		]
 
 

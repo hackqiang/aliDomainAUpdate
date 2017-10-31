@@ -25,7 +25,21 @@ def check_ip(ip):
 
 def my_ip():
     html = os.popen('curl -s http://myip.dnsomatic.com/')
-    ip = html.readlines()[0]
-    if check_ip(ip):
-        return ip
+    try:
+        ip = html.readlines()[0]
+        if check_ip(ip):
+            return ip
+    except:
+        pass
     return None
+    
+
+def get_root_domain(domain):
+    s = domain.split('.')
+    return s[-2] + '.' + s[-1]
+    
+
+if __name__ == "__main__":
+    print get_root_domain('x.y.baidu.com')
+    print get_root_domain('x.baidu.com')
+    print get_root_domain('baidu.com')

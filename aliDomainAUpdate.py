@@ -31,13 +31,15 @@ class aliDomainAUpdate(object):
         records = list()
         try:
             request = DescribeDomainRecordsRequest.DescribeDomainRecordsRequest()
-            request.set_DomainName(domain)
+            request.set_DomainName(get_root_domain(domain))
             request.set_accept_format('json')
             result = self.clt.do_action_with_exception(request)
             logging.debug(result)
             for record in json.loads(result)['DomainRecords']['Record']:
                 if 'Type' in record and record['Type'] == 'A':
-                    records.append(record)
+                    logging.debug(record['RR'])
+                    if record['RR'] + '.' + record['DomainName'] == domain:
+                        records.append(record)
         except Exception as e:
             logging.error(e)
 
